@@ -7,21 +7,26 @@ CREATE TABLE CIDADE (
     nome_cidade VARCHAR(255) NOT NULL
 );
 
+DROP TABLE CIDADE;
 -- Criação da tabela PERIODO_TEMPO para armazenar os períodos de tempo das leituras
 CREATE TABLE PERIODO_TEMPO (
     id_periodo INT PRIMARY KEY AUTO_INCREMENT,
     data_hora_inicio DATETIME NOT NULL,
-    data_hora_fim DATETIME NOT NULL
+    data_hora_fim DATETIME NOT NULL,
+    turno VARCHAR(15)
+);
+DROP TABLE PERIODO_TEMPO;
+-- Criação da tabela LEITURA_UMIDADE para armazenar os dados de umidade coletados
+CREATE TABLE LEITURA (
+    id_leitura INT PRIMARY KEY AUTO_INCREMENT,
+    umidade DECIMAL(5, 2) NOT NULL,
+	altitude DECIMAL(5, 2) NOT NULL,
+    temperatura DECIMAL(5, 2) NOT NULL,
+    pressao DECIMAL(10, 2) NOT NULL,
+    co2 INT NOT NULL,
+    tempo_registro DATETIME NOT NULL
 );
 
--- Criação da tabela LEITURA_UMIDADE para armazenar os dados de umidade coletados
-CREATE TABLE LEITURA_UMIDADE (
-    id_leitura INT PRIMARY KEY AUTO_INCREMENT,
-    valor_umidade DECIMAL(5, 2) NOT NULL,
-    data_hora_leitura DATETIME NOT NULL,
-    id_cidade INT,
-    id_periodo INT,
+drop table LEITURA;
 
-    FOREIGN KEY (id_cidade) REFERENCES CIDADE(id_cidade),
-    FOREIGN KEY (id_periodo) REFERENCES PERIODO_TEMPO(id_periodo)
-);cidade
+select * from LEITURA;
